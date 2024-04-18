@@ -1,0 +1,105 @@
+.input {
+  border: none !important;
+  border-bottom-style: solid !important;
+  border-radius: 0 !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+  color: #7f8487 !important;
+  border-color: #7f8487b1 !important;
+}
+
+.input::placeholder {
+  color: #7f8487b1 !important;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /* Styles */
+  .row1{
+    padding: 15% 0 !important;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  /* Styles */
+  .row1{
+    padding: 15% 0 !important;
+  }
+  .col2{
+    padding: 5% 0 !important;
+  }
+  .mainContainer {
+    width: 95% !important;
+    height: 120% !important;
+  }
+
+  .dynamicPadding{
+    padding: 2% 4%  !important;
+  }
+  .mainHeading{
+    font-size: 2rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  /* Styles */
+  .mainContainer {
+    width: 95% !important;
+    height: 100% !important;
+  }
+
+  .dynamicPadding{
+    padding: 2% 4%  !important;
+  }
+  .mainHeading{
+    font-size: 2rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 993px) and (max-width: 1296px) {
+  /* Styles */
+  .mainContainer {
+    width: 65% !important;
+    height: 100% !important;
+  }
+
+  .dynamicPadding{
+    padding: 2% 4%  !important;
+  }
+  .mainHeading{
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 1297px) and (max-width: 1580px) {
+  /* Styles */
+  .mainContainer {
+    width: 65% !important;
+    height: 85% !important;
+  }
+
+  .dynamicPadding{
+    padding: 2% 6%  !important;
+  }
+  .mainHeading{
+    font-size: 2.5rem;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1581px) {
+  /* Styles */
+  .mainContainer {
+    width: 60% !important;
+    height: 80% !important;
+  }
+
+  .dynamicPadding{
+    padding: 4% 8%  !important;
+  }
+  .mainHeading{
+    font-size: 2.8rem;
+  }
+}

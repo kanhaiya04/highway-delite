@@ -1,6 +1,6 @@
 import express, { Express } from "express";
 import { connect } from "mongoose";
-
+var cors = require("cors");
 const dotenv = require("dotenv");
 const otpRoute = require("./routes/otpRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -19,6 +19,7 @@ const mongodbURL = process.env.MONGO_URL || "";
 
 const app: Express = express();
 const port = process.env.PORT || 4000;
+app.use(cors());
 app.use(express.json());
 app.use("/otp", otpRoute);
 app.use("/user", userRoutes);
