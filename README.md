@@ -3,7 +3,7 @@
 Login and signUp page with OTP verification
 
 
-[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge)](https://highway-delite-1.onrender.com/)
+[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge)](https://highway-delite-pb0c4x0p1-kanhaiya04s-projects.vercel.app/)
 
 ## Instructions
 
