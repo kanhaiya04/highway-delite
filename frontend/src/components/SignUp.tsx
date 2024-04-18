@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
+import { toast } from "react-toastify";
 
 type ContactMode = "phone" | "email";
 
@@ -52,8 +53,15 @@ const SignUp = (props: { toggleScreen: () => void }) => {
   };
 
   const handleSignUp = async () => {
+    if (
+      userData.firstName.length === 0 ||
+      userData.lastName.length === 0 ||
+      userData.email.length === 0 ||
+      userData.password.length === 0
+    )
+      return toast("All fields are required");
     if (userData.password !== userData.rePassword) {
-      alert("Passwords do not match");
+      toast("Passwords do not match");
       return;
     }
 
@@ -65,13 +73,21 @@ const SignUp = (props: { toggleScreen: () => void }) => {
       body: JSON.stringify({ email: userData.email }),
     });
     const json = await response.json();
-    console.log(json);
+    toast(json.message);
     if (json.success) {
       toggleOtpField();
     }
   };
 
   const handleVerifyOTP = async () => {
+    if (
+      userData.firstName.length === 0 ||
+      userData.lastName.length === 0 ||
+      userData.email.length === 0 ||
+      userData.password.length === 0 ||
+      userData.otp.length === 0
+    )
+      return toast("All fields are required");
     const response = await fetch("http://localhost:4000/user/signUp", {
       method: "POST",
       headers: {
@@ -80,10 +96,9 @@ const SignUp = (props: { toggleScreen: () => void }) => {
       body: JSON.stringify(userData),
     });
     const json = await response.json();
-    console.log(json);
+    toast(json.message);
     if (json.success) {
       localStorage.setItem("token", json.token);
-      alert("OTP verified");
       navigator("/welcome");
     }
   };

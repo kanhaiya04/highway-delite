@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
+import { toast } from "react-toastify";
 import "./styles.css";
 
 interface UserData {
@@ -15,6 +16,7 @@ const LogIn = (props: { toggleScreen: () => void }) => {
     email: "",
     password: "",
   });
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
@@ -24,6 +26,8 @@ const LogIn = (props: { toggleScreen: () => void }) => {
     setShowPassword(!showPassword);
   };
   const handleLogIn = async () => {
+    if (userData.email.length === 0 || userData.password.length === 0)
+      return toast("All fields are required");
     const response = await fetch("http://localhost:4000/user/logIn", {
       method: "POST",
       headers: {
@@ -32,10 +36,9 @@ const LogIn = (props: { toggleScreen: () => void }) => {
       body: JSON.stringify(userData),
     });
     const json = await response.json();
-    console.log(json);
+    toast(json.message);
     if (json.success) {
       localStorage.setItem("token", json.token);
-      alert("logged In");
       navigator("/welcome");
     }
   };
