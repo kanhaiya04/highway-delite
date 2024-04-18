@@ -28,7 +28,7 @@ const LogIn = (props: { toggleScreen: () => void }) => {
   const handleLogIn = async () => {
     if (userData.email.length === 0 || userData.password.length === 0)
       return toast("All fields are required");
-    const response = await fetch("http://localhost:4000/user/logIn", {
+    const response = await fetch("https://highway-delite.onrender.com/user/logIn", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -65,13 +65,16 @@ const SignUp = (props: { toggleScreen: () => void }) => {
       return;
     }
 
-    const response = await fetch("http://localhost:4000/otp/send-otp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: userData.email }),
-    });
+    const response = await fetch(
+      "https://highway-delite.onrender.com/otp/send-otp",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: userData.email }),
+      }
+    );
     const json = await response.json();
     toast(json.message);
     if (json.success) {
@@ -88,13 +91,16 @@ const SignUp = (props: { toggleScreen: () => void }) => {
       userData.otp.length === 0
     )
       return toast("All fields are required");
-    const response = await fetch("http://localhost:4000/user/signUp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
+    const response = await fetch(
+      "https://highway-delite.onrender.com/user/signUp",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      }
+    );
     const json = await response.json();
     toast(json.message);
     if (json.success) {
